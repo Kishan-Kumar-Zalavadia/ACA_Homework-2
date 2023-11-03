@@ -26,7 +26,6 @@ public class Main {
         int totalCandies = 0;
         int[] candyDistribution = new int[n];
         for(int i=0; i<n; i++){
-//            totalCandies += Math.max(left[i],right[i]);
             if(left[i]>right[i]){
                 totalCandies+=left[i];
                 candyDistribution[i] = left[i];
