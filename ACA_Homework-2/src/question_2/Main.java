@@ -33,9 +33,9 @@ public class Main {
     {
         int R, K;
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of eggs:");
+        System.out.print("Enter number of calls: ");
         R = sc.nextInt();
-        System.out.print("Enter number of floors:");
+        System.out.print("Enter number of test spots: ");
         K = sc.nextInt();
         System.out.print("Minimum number of cost in worst case with " + R + " dollars and " + K + " test spots is " + minCall(R, K));
     }
