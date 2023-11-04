@@ -38,5 +38,6 @@ public class Main {
         System.out.print("Enter number of test spots: ");
         K = sc.nextInt();
         System.out.print("Minimum number of cost in worst case with " + R + " dollars and " + K + " test spots is " + minCall(R, K));
+        
     }
 }
