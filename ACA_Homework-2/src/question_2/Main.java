@@ -4,32 +4,23 @@ import java.util.Scanner;
 
 public class Main {
 
-    /* Function to get minimum number of
-    trials needed in worst case with n
-    eggs and k floors */
-    static int eggDrop(int n, int k)
+    /* Function to get minimum number cost needed in worst case with R calls and K test spots */
+    static int minCall(int R, int K)
     {
-        // If there are no floors, then
-        // no trials needed. OR if there
-        // is one floor, one trial needed.
-        if (k == 1 || k == 0)
-            return k;
+        // If there are no test spots, then no trials needed. OR if there is one test spot, one dollar (one call) needed.
+        if (K == 1 || K == 0)
+            return K;
 
-        // We need k trials for one egg
-        // and k floors
-        if (n == 1)
-            return k;
+        // We need K dollars for one call and K test spots
+        if (R == 1)
+            return K;
 
         int min = Integer.MAX_VALUE;
         int x, res;
 
-        // Consider all droppings from
-        // 1st floor to kth floor and
-        // return the minimum of these
-        // values plus 1.
-        for (x = 1; x <= k; x++) {
-            res = Math.max(eggDrop(n - 1, x - 1),
-                    eggDrop(n, k - x));
+        // Consider all calls from 1st test spot to kth test spots and return the minimum of these values plus 1.
+        for (x = 1; x <= K; x++) {
+            res = Math.max(minCall(R - 1, x - 1), minCall(R, K - x));
             if (res < min)
                 min = res;
         }
@@ -37,19 +28,15 @@ public class Main {
         return min + 1;
     }
 
-    // Driver code
+    // Main function
     public static void main(String args[])
     {
-        int n, k;
+        int R, K;
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of eggs:");
-        n = sc.nextInt();
+        R = sc.nextInt();
         System.out.print("Enter number of floors:");
-        k = sc.nextInt();
-        System.out.print("Minimum number of "
-                + "trials in worst case with " + n
-                + " eggs and " + k + " floors is "
-                + eggDrop(n, k));
+        K = sc.nextInt();
+        System.out.print("Minimum number of cost in worst case with " + R + " dollars and " + K + " test spots is " + minCall(R, K));
     }
-    // This code is contributed by Ryuga.
 }
