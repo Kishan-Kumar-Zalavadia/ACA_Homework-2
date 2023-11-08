@@ -100,51 +100,51 @@ public class Main {
         return wholeItemAnswer + fractionalItemAnswer;
     }
 
-    public static void main(String[] args) {
-
-        List<Item> items = new ArrayList<>();
-        items.add(new Item(1, 3, 50, 'W'));
-        items.add(new Item(2, 2, 25, 'W'));
-        items.add(new Item(3, 4, 60, 'W'));
-        items.add(new Item(4, 1, 15, 'W'));
-        items.add(new Item(5, 3, 40, 'W'));
-        items.add(new Item(6, 2, 30, 'W'));
-        items.add(new Item(7, 3, 50, 'F'));
-        items.add(new Item(8, 2, 30, 'F'));
-        items.add(new Item(9, 4, 50, 'F'));
-        items.add(new Item(10, 1, 10, 'F'));
-
-        double weightLimit = 10;
-
-
-        List<SelectedItem> selectedItems = new ArrayList<>();
-        double maxValue = knapsack(items, weightLimit, selectedItems);
-
-        System.out.println("Maximum value for the knapsack with weight limit " + weightLimit + " is: " + maxValue);
-        System.out.println("Selected items:");
-
-        for (SelectedItem selectedItem : selectedItems) {
-            System.out.println("Item " + selectedItem.item.id + " - Weight: " + selectedItem.takenWeight + ", Value: " + selectedItem.item.value + ", Type: " + selectedItem.item.type);
-        }
-    }
-
 //    public static void main(String[] args) {
-//        // Example code for generating random inputs
-//        int random = 10;
-//        List<Item> randomItems = generateRandomItems(random);
-//        int randomWeightLimit = generateRandomWeightLimit(random);
+//
+//        List<Item> items = new ArrayList<>();
+//        items.add(new Item(1, 3, 50, 'W'));
+//        items.add(new Item(2, 2, 25, 'W'));
+//        items.add(new Item(3, 4, 60, 'W'));
+//        items.add(new Item(4, 1, 15, 'W'));
+//        items.add(new Item(5, 3, 40, 'W'));
+//        items.add(new Item(6, 2, 30, 'W'));
+//        items.add(new Item(7, 3, 50, 'F'));
+//        items.add(new Item(8, 2, 30, 'F'));
+//        items.add(new Item(9, 4, 50, 'F'));
+//        items.add(new Item(10, 1, 10, 'F'));
+//
+//        double weightLimit = 10;
+//
 //
 //        List<SelectedItem> selectedItems = new ArrayList<>();
-//        double maxValue = knapsack(randomItems, randomWeightLimit, selectedItems);
+//        double maxValue = knapsack(items, weightLimit, selectedItems);
 //
+//        System.out.println("Maximum value for the knapsack with weight limit " + weightLimit + " is: " + maxValue);
 //        System.out.println("Selected items:");
-//        printItems(randomItems);
-//        System.out.println("----------------------------------------------------------------------------------------------------");
-//        System.out.println("Selected items in the knapsack:");
-//        printSelectedItems(selectedItems);
-//        System.out.println("----------------------------------------------------------------------------------------------------");
-//        System.out.println("Maximum value for the knapsack with weight limit " + randomWeightLimit + " is: " + maxValue);
+//
+//        for (SelectedItem selectedItem : selectedItems) {
+//            System.out.println("Item " + selectedItem.item.id + " - Weight: " + selectedItem.takenWeight + ", Value: " + selectedItem.item.value + ", Type: " + selectedItem.item.type);
+//        }
 //    }
+
+    public static void main(String[] args) {
+        // Example code for generating random inputs
+        int random = 10;
+        List<Item> randomItems = generateRandomItems(random);
+        int randomWeightLimit = generateRandomWeightLimit(random);
+
+        List<SelectedItem> selectedItems = new ArrayList<>();
+        double maxValue = knapsack(randomItems, randomWeightLimit, selectedItems);
+
+        System.out.println("Selected items:");
+        printItems(randomItems);
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println("Selected items in the knapsack:");
+        printSelectedItems(selectedItems);
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println("Maximum value for the knapsack with weight limit " + randomWeightLimit + " is: " + maxValue);
+    }
 
     public static List<Item> generateRandomItems(int count) {
         List<Item> items = new ArrayList<>();
