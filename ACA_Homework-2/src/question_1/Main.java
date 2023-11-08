@@ -1,9 +1,6 @@
 package src.question_1;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 class Item {
     int id;
@@ -85,7 +82,6 @@ public class Main {
             }
         }
 
-        System.out.println("Remaining: "+ remainingWeight);
         List<Item> fractionalItems = new ArrayList<>();
 
         for (Item item : items) {
@@ -104,26 +100,74 @@ public class Main {
         return wholeItemAnswer + fractionalItemAnswer;
     }
 
+//    public static void main(String[] args) {
+//
+//        List<Item> items = new ArrayList<>();
+//        items.add(new Item(1, 3, 50, 'W'));
+//        items.add(new Item(2, 2, 30, 'F'));
+//        items.add(new Item(3, 1, 20, 'W'));
+//        items.add(new Item(4, 2, 40, 'F'));
+//        items.add(new Item(5, 1, 10, 'W'));
+//
+//        double weightLimit = 7;
+//
+//
+//        List<SelectedItem> selectedItems = new ArrayList<>();
+//        double maxValue = knapsack(items, weightLimit, selectedItems);
+//
+//        System.out.println("Maximum value for the knapsack with weight limit " + weightLimit + " is: " + maxValue);
+//        System.out.println("Selected items:");
+//
+//        for (SelectedItem selectedItem : selectedItems) {
+//            System.out.println("Item " + selectedItem.item.id + " - Weight: " + selectedItem.takenWeight + ", Value: " + selectedItem.item.value + ", Type: " + selectedItem.item.type);
+//        }
+//    }
+
     public static void main(String[] args) {
-
-        List<Item> items = new ArrayList<>();
-        items.add(new Item(1, 3, 50, 'W'));
-        items.add(new Item(2, 2, 30, 'F'));
-        items.add(new Item(3, 1, 20, 'W'));
-        items.add(new Item(4, 2, 40, 'F'));
-        items.add(new Item(5, 1, 10, 'W'));
-
-        double weightLimit = 7;
-
+        // Example code for generating random inputs
+        List<Item> randomItems = generateRandomItems(10);
+        int randomWeightLimit = generateRandomWeightLimit(10);
 
         List<SelectedItem> selectedItems = new ArrayList<>();
-        double maxValue = knapsack(items, weightLimit, selectedItems);
+        double maxValue = knapsack(randomItems, randomWeightLimit, selectedItems);
 
-        System.out.println("Maximum value for the knapsack with weight limit " + weightLimit + " is: " + maxValue);
         System.out.println("Selected items:");
+        printItems(randomItems);
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println("Selected items in the knapsack:");
+        printSelectedItems(selectedItems);
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println("Maximum value for the knapsack with weight limit " + randomWeightLimit + " is: " + maxValue);
+    }
 
+    public static List<Item> generateRandomItems(int count) {
+        List<Item> items = new ArrayList<>();
+        Random random = new Random();
+        for (int i = 1; i <= count; i++) {
+            int weight = random.nextInt(10) + 1; // Random weight between 1 and 10
+            int value = random.nextInt(100); // Random value between 0 and 100
+            char type = random.nextBoolean() ? 'W' : 'F'; // Randomly choose 'W' or 'F' type
+            items.add(new Item(i, weight, value, type));
+        }
+        return items;
+    }
+
+    public static int generateRandomWeightLimit(int maxLimit) {
+        Random random = new Random();
+        return random.nextInt(maxLimit) + 1; // Random weight limit between 1 and maxLimit
+    }
+
+    public static void printItems(List<Item> items) {
+        System.out.println("Input Items:");
+        for (Item item : items) {
+            System.out.println("Item " + item.id + " - Weight: " + item.weight + ", Value: " + item.value + ", Type: " + item.type);
+        }
+    }
+
+    public static void printSelectedItems(List<SelectedItem> selectedItems) {
         for (SelectedItem selectedItem : selectedItems) {
             System.out.println("Item " + selectedItem.item.id + " - Weight: " + selectedItem.takenWeight + ", Value: " + selectedItem.item.value + ", Type: " + selectedItem.item.type);
         }
     }
+
 }
