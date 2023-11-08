@@ -125,8 +125,9 @@ public class Main {
 
     public static void main(String[] args) {
         // Example code for generating random inputs
-        List<Item> randomItems = generateRandomItems(10);
-        int randomWeightLimit = generateRandomWeightLimit(10);
+        int random = 10;
+        List<Item> randomItems = generateRandomItems(random);
+        int randomWeightLimit = generateRandomWeightLimit(random);
 
         List<SelectedItem> selectedItems = new ArrayList<>();
         double maxValue = knapsack(randomItems, randomWeightLimit, selectedItems);
