@@ -144,7 +144,7 @@ public class Main {
         printSelectedItems(selectedItems);
         System.out.println("----------------------------------------------------------------------------------------------------");
         System.out.println("Maximum value for the knapsack with weight limit " + randomWeightLimit + " is: " + maxValue);
-    } 
+    }
 
     public static List<Item> generateRandomItems(int count) {
         List<Item> items = new ArrayList<>();
