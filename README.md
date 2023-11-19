@@ -1,1 +1,3 @@
-# CSCE  5150 Analysis of Computer Algorithms
+# CSCE  5150: Analysis of Computer Algorithms
+
+Fall 20203
